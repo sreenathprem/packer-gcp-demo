@@ -1,6 +1,9 @@
+data "git-commit" "cwd-head" { }
+
 locals {
   # https://www.packer.io/docs/templates/hcl_templates/functions/datetime/formatdate
-  datestamp = formatdate("YYYYMMDD", timestamp())
+  truncated_sha = substr(data.git-commit.cwd-head.hash, 0, 8)
+  author = data.git-commit.cwd-head.author
 }
 
 # https://www.packer.io/docs/builders/googlecompute#required
@@ -15,8 +18,8 @@ source "googlecompute" "base-docker" {
   source_image_family = var.source_image_family
 
   image_family      = var.image_family
-  image_name        = "tfe-base-${var.arch}-${local.datestamp}"
-  image_description = "TFE base image"
+  image_name        = "tfe-base-${var.arch}-${local.truncated_sha}"
+  image_description = "TFE base image. Built by ${local.author}"
 
   tags = ["packer"]
 }
