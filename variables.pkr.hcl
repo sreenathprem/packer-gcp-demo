@@ -13,3 +13,7 @@ variable "source_image_family" {
 variable "image_family" {
     type = string
 }
+
+variable "project_id" {
+    type = string
+}

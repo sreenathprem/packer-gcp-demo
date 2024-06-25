@@ -1,4 +1,5 @@
 zone                = "northamerica-northeast2-c"
 arch                = "amd64"
-source_image_family = "debian-11"
-image_family        = "custom-docker-base"
+source_image_family = "debian-12"
+image_family        = "tfe-docker-base"
+project_id          = "hc-aa6ee59df5524d66a5d5c927a19"

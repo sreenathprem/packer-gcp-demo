@@ -16,7 +16,7 @@ source "googlecompute" "base-docker" {
 
   image_family      = var.image_family
   image_name        = "tfe-base-${var.arch}-${local.datestamp}"
-  image_description = "Consul base image"
+  image_description = "TFE base image"
 
   tags = ["packer"]
 }
@@ -31,8 +31,8 @@ Some nice description about the image being published to HCP Packer Registry.
     EOT
     bucket_labels = {
       "owner"          = "platform-team"
-      "os"             = "Ubuntu",
-      "ubuntu-version" = "Focal 20.04",
+      "os"             = "Debian",
+      "os-version" = "12",
     }
 
     build_labels = {
