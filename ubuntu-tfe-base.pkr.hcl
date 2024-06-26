@@ -1,3 +1,12 @@
+packer {
+  required_plugins {
+    git = {
+      version = ">= 0.6.2"
+      source  = "github.com/ethanmdavidson/git"
+    }
+  }
+}
+
 data "git-commit" "cwd-head" { }
 
 locals {
@@ -74,8 +83,8 @@ Some nice description about the image being published to HCP Packer Registry.
       "curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg",
       "echo 'Adding Docker apt repo...'",
       "echo \"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable\" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null",
-      "echo 'Rebooting...'",
-      "sudo reboot"
+      # "echo 'Rebooting...'",
+      # "sudo reboot"
     ]
   }
 
