@@ -1,7 +1,7 @@
 provider "hcp" {}
 
 provider "google" {
-  project = "your-gcp-project-id"
+  project = var.project-id
   region  = "us-central1"
   zone    = "us-central1-a"
 }
