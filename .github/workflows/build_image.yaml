@@ -24,16 +24,13 @@ jobs:
           credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
 
       - name: Packer Init
-        working-directory: ./packer
         run: packer init .
 
       - name: Packer Build
-        working-directory: ./packer
         run: packer build .
 
       - name: Get HCP Packer Iteration ID from Packer Manifest
         id: hcp
-        working-directory: ./packer
         run: |
           last_run_uuid=$(jq -r '.last_run_uuid' "./packer_manifest.json")
           build=$(jq -r '.builds[] | select(.packer_run_uuid == "'"$last_run_uuid"'")' "./packer_manifest.json")
