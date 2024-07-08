@@ -29,14 +29,6 @@ jobs:
       - name: Packer Build
         run: packer build .
 
-      - name: Get HCP Packer Iteration ID from Packer Manifest
-        id: hcp
-        run: |
-          last_run_uuid=$(jq -r '.last_run_uuid' "./packer_manifest.json")
-          build=$(jq -r '.builds[] | select(.packer_run_uuid == "'"$last_run_uuid"'")' "./packer_manifest.json")
-          iteration_id=$(echo "$build" | jq -r '.custom_data.iteration_id')
-          echo "::set-output name=iteration_id::$iteration_id"
-
   test:
     name: E2E Testing
     needs: build

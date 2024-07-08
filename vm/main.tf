@@ -2,8 +2,8 @@ provider "hcp" {}
 
 provider "google" {
   project = var.project-id
-  region  = "us-central1"
-  zone    = "us-central1-a"
+  region  = "europe-west"
+  zone    = "europe-west-a"
 }
 
 data "hcp_packer_version" "ubuntu" {
@@ -15,7 +15,7 @@ data "hcp_packer_artifact" "ubuntu_us_east_2" {
   bucket_name         = "dbag-debian-tfe-base"
   platform            = "gce"
   version_fingerprint = data.hcp_packer_version.ubuntu.fingerprint
-  region              = "northamerica-northeast2-c"
+  region              = "europe-west-a"
 }
 
 resource "google_compute_network" "default" {
