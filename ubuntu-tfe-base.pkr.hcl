@@ -37,7 +37,7 @@ build {
   sources = ["sources.googlecompute.base-docker"]
 
   hcp_packer_registry {
-    bucket_name = "ubuntu-tfe-base"
+    bucket_name = "dbag-debian-tfe-base"
     description = <<EOT
 Some nice description about the image being published to HCP Packer Registry.
     EOT
@@ -89,6 +89,7 @@ Some nice description about the image being published to HCP Packer Registry.
   }
 
   provisioner "shell" {
+    expect_disconnect = "true"
     inline = [
       "echo '=============================================='",
       "echo 'INSTALL DOCKER'",

@@ -7,12 +7,12 @@ provider "google" {
 }
 
 data "hcp_packer_version" "ubuntu" {
-  bucket_name  = "ubuntu-tfe-base"
+  bucket_name  = "dbag-debian-tfe-base"
   channel_name = "latest"
 }
 
 data "hcp_packer_artifact" "ubuntu_us_east_2" {
-  bucket_name         = "ubuntu-tfe-base"
+  bucket_name         = "dbag-debian-tfe-base"
   platform            = "gce"
   version_fingerprint = data.hcp_packer_version.ubuntu.fingerprint
   region              = "northamerica-northeast2-c"
