@@ -2,8 +2,8 @@ provider "hcp" {}
 
 provider "google" {
   project = var.project-id
-  region  = "europe-west"
-  zone    = "europe-west-a"
+  region  = "europe-west3"
+  zone    = "europe-west3-a"
 }
 
 data "hcp_packer_version" "ubuntu" {
@@ -11,11 +11,11 @@ data "hcp_packer_version" "ubuntu" {
   channel_name = "production"
 }
 
-data "hcp_packer_artifact" "ubuntu_us_east_2" {
+data "hcp_packer_artifact" "ubuntu_europe_west3" {
   bucket_name         = "dbag-debian-tfe-base"
   platform            = "gce"
   version_fingerprint = data.hcp_packer_version.ubuntu.fingerprint
-  region              = "europe-west-a"
+  region              = "europe-west3-a"
 }
 
 resource "google_compute_network" "default" {
@@ -25,11 +25,11 @@ resource "google_compute_network" "default" {
 resource "google_compute_instance" "vm_instance" {
   name         = "my-vm"
   machine_type = "n1-standard-1"
-  zone         = "us-central1-a"
+  zone         = "europe-west3-a"
 
   boot_disk {
     initialize_params {
-      image = data.hcp_packer_artifact.ubuntu_us_east_2.external_identifier
+      image = data.hcp_packer_artifact.ubuntu_europe_west3.external_identifier
     }
   }
 
