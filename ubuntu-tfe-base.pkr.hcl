@@ -4,6 +4,10 @@ packer {
       version = ">= 0.6.2"
       source  = "github.com/ethanmdavidson/git"
     }
+    googlecompute = {
+      source  = "github.com/hashicorp/googlecompute"
+      version = "~> 1"
+    }
   }
 }
 
