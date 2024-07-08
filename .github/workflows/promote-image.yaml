@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Promote Images
 
 on:
   workflow_dispatch:
