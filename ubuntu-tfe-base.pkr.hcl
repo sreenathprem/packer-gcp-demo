@@ -44,7 +44,7 @@ Some nice description about the image being published to HCP Packer Registry.
     bucket_labels = {
       "owner"          = "platform-team"
       "os"             = "Debian",
-      "os-version" = "12",
+      "os-version" = "11",
     }
 
     build_labels = {
