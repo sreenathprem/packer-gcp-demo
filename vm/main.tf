@@ -8,7 +8,7 @@ provider "google" {
 
 data "hcp_packer_version" "ubuntu" {
   bucket_name  = "dbag-debian-tfe-base"
-  channel_name = "production"
+  channel_name = "development"
 }
 
 data "hcp_packer_artifact" "ubuntu_europe_west3" {
