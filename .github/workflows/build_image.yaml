@@ -1,6 +1,7 @@
 name: Build and Deploy
 
-on: [push]
+on:
+  workflow_dispatch:
 
 env:
   HCP_PROJECT_ID: ${{ secrets.HCP_PROJECT_ID }}
