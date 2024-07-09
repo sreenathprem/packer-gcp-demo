@@ -22,14 +22,34 @@ resource "google_compute_network" "default" {
   name = "default-network"
 }
 
-resource "google_compute_instance" "vm_instance" {
-  name         = "my-vm"
+resource "google_compute_instance" "packer_instance" {
+  name         = "my-packer-vm"
   machine_type = "n1-standard-1"
   zone         = "europe-west3-a"
 
   boot_disk {
     initialize_params {
       image = data.hcp_packer_artifact.ubuntu_europe_west3.external_identifier
+    }
+  }
+
+  network_interface {
+    network = google_compute_network.default.name
+
+    access_config {
+      // Ephemeral IP
+    }
+  }
+}
+
+resource "google_compute_instance" "vm_instance" {
+  name         = "my-nonstandard-vm"
+  machine_type = "n1-standard-1"
+  zone         = "europe-west3-a"
+
+  boot_disk {
+    initialize_params {
+      image = "debian-12-bookworm-v20240701"
     }
   }
 
