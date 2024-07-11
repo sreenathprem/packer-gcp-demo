@@ -17,3 +17,7 @@ variable "image_family" {
 variable "project_id" {
     type = string
 }
+
+variable "hcp_bucket_name" {
+    type = string
+}

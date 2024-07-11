@@ -41,7 +41,7 @@ build {
   sources = ["sources.googlecompute.base-docker"]
 
   hcp_packer_registry {
-    bucket_name = "dbag-debian-tfe-base"
+    bucket_name = var.hcp_bucket_name
     description = <<EOT
 Some nice description about the image being published to HCP Packer Registry.
     EOT
