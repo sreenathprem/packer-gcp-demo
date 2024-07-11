@@ -11,6 +11,8 @@ HCP_CLIENT_ID
 HCP_CLIENT_SECRET
 HCP_PROJECT_ID
 ```
+[Relvant Docu](https://developer.hashicorp.com/packer/tutorials/hcp-get-started/hcp-push-artifact-metadata#create-hcp-service-principal-and-set-to-environment-variable)
+
 2. Adjust the variables in the `variables.auto.pkrvars.hcl`
 
 3. Do a packer build
