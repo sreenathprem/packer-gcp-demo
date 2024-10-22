@@ -21,9 +21,9 @@ jobs:
       - name: Configure GCP Credentials
         uses: 'google-github-actions/auth@v2'
         with:
-          # credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
-          service_account: 'gh-actions-packer@tfc-agent-cloudrun.iam.gserviceaccount.com'
-          workload_identity_provider: 'projects/654897125546/locations/global/workloadIdentityPools/github/providers/my-repo'
+          credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
+          # service_account: 'gh-actions-packer@tfc-agent-cloudrun.iam.gserviceaccount.com'
+          # workload_identity_provider: 'projects/654897125546/locations/global/workloadIdentityPools/github/providers/my-repo'
 
       - name: Packer Init
         run: packer init .
