@@ -1,4 +1,4 @@
-zone                = "europe-west3-a"
+zone                = "europe-west10-a"
 arch                = "amd64"
 source_image_family = "debian-11"
 image_family        = "tfe-docker-base"
