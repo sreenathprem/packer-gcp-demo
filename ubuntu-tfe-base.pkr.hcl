@@ -13,6 +13,11 @@ packer {
 
 data "git-commit" "cwd-head" { }
 
+resource "random_string" "random" {
+  length           = 8
+  special          = false
+}
+
 locals {
   # https://www.packer.io/docs/templates/hcl_templates/functions/datetime/formatdate
   truncated_sha = substr(data.git-commit.cwd-head.hash, 0, 8)
@@ -31,7 +36,7 @@ source "googlecompute" "base-docker" {
   source_image_family = var.source_image_family
 
   image_family      = var.image_family
-  image_name        = "tfe-base-${var.arch}-${local.truncated_sha}"
+  image_name        = "tfe-base-${var.arch}-${local.truncated_sha}-${random_string.random.result}"
   image_description = "TFE base image. Built by ${local.author}"
 
   tags = ["packer"]
