@@ -26,6 +26,7 @@ resource "google_compute_instance" "packer_instance" {
   name         = "my-packer-vm"
   machine_type = var.vm-type
   zone         = "us-west1-a"
+  allow_stopping_for_update = true
 
   boot_disk {
     initialize_params {
@@ -46,6 +47,7 @@ resource "google_compute_instance" "vm_instance" {
   name         = "my-nonstandard-vm"
   machine_type = var.vm-type
   zone         = "us-west1-a"
+  allow_stopping_for_update = true
 
   boot_disk {
     initialize_params {
