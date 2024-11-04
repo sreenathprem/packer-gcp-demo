@@ -1,1 +1,1 @@
-vm-type = "n1-standard-4"
+vm-type = "n1-standard-1"
