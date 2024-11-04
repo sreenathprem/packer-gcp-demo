@@ -6,3 +6,8 @@ variable "region" {
 variable "project-id" {
   type = string
 }
+
+variable "vm-type" {
+  type = string
+  default = "n1-standard-1"
+}

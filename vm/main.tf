@@ -24,7 +24,7 @@ resource "google_compute_network" "default" {
 
 resource "google_compute_instance" "packer_instance" {
   name         = "my-packer-vm"
-  machine_type = "n1-standard-1"
+  machine_type = var.vm-type
   zone         = "us-west1-a"
 
   boot_disk {
@@ -44,7 +44,7 @@ resource "google_compute_instance" "packer_instance" {
 
 resource "google_compute_instance" "vm_instance" {
   name         = "my-nonstandard-vm"
-  machine_type = "n1-standard-1"
+  machine_type = var.vm-type
   zone         = "us-west1-a"
 
   boot_disk {
