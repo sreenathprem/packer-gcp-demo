@@ -11,7 +11,7 @@ data "hcp_packer_version" "ubuntu" {
   channel_name = "development"
 }
 
-data "hcp_packer_artifact" "ubuntu_europe_west1" {
+data "hcp_packer_artifact" "ubuntu_us_west1" {
   bucket_name         = "dbag-debian-tfe-base"
   platform            = "gce"
   version_fingerprint = data.hcp_packer_version.ubuntu.fingerprint
@@ -30,7 +30,7 @@ resource "google_compute_instance" "packer_instance" {
 
   boot_disk {
     initialize_params {
-      image = data.hcp_packer_artifact.ubuntu_europe_west1.external_identifier
+      image = data.hcp_packer_artifact.ubuntu_us_west1.external_identifier
     }
   }
 
@@ -51,7 +51,8 @@ resource "google_compute_instance" "vm_instance" {
 
   boot_disk {
     initialize_params {
-      image = "tfe-base-amd64-67c0bd8f"
+      # image = "tfe-base-amd64-67c0bd8f"
+      image = data.hcp_packer_artifact.ubuntu_us_west1.external_identifier
     }
   }
 
