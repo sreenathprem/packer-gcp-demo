@@ -51,7 +51,7 @@ resource "google_compute_instance" "vm_instance" {
 
   boot_disk {
     initialize_params {
-      image = "debian-12-bookworm-v20240701"
+      image = "tfe-base-amd64-67c0bd8f"
     }
   }
 
