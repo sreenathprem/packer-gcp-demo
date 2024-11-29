@@ -3,5 +3,5 @@ output "ubuntu_version" {
 }
 
 output "ubuntu_europe_west1" {
-  value = data.hcp_packer_artifact.ubuntu_europe_west1
+  value = data.hcp_packer_artifact.ubuntu_us_west1
 }
