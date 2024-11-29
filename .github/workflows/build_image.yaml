@@ -4,6 +4,8 @@ on:
   push:
     branches:
       main
+    paths-ignore:
+      - 'vm/**'
 
 env:
   HCP_PROJECT_ID: ${{ secrets.HCP_PROJECT_ID }}
