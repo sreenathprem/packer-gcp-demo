@@ -52,8 +52,8 @@ resource "google_compute_instance" "vm_instance" {
   boot_disk {
     initialize_params {
       # Image Revoked in HCP Packer
-      image = "tfe-base-amd64-67c0bd8f"
-      # image = data.hcp_packer_artifact.ubuntu_us_west1.external_identifier
+      # image = "tfe-base-amd64-67c0bd8f"
+      image = data.hcp_packer_artifact.ubuntu_us_west1.external_identifier
     }
   }
 
